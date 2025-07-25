@@ -9,15 +9,8 @@ const compat = new FlatCompat({
   baseDirectory: __dirname,
 });
 
-const eslintConfig = {
-  ...projectCompilationEventsSubscribe.config({
-    extends: ['next/core-web-vitals', 'next/typescript', 'plugin:react/recommended'],
-    plugins: ['prettier'],
-    rules: {
-      'prettier/prettier': 'error',
-      'react/react-in-jsx-scope': 'off',
-    },
-  })
-}
+const eslintConfig = [
+  ...compat.extends("next/core-web-vitals", "next/typescript"),
+];
 
 export default eslintConfig;
